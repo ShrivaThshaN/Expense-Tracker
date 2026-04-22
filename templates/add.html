@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Add Expense · Expense Tracker{% endblock %}
+{% block content %}
+<h1>Add a New Expense</h1>
+
+<form method="POST" class="expense-form">
+    <label>
+        Date
+        <input type="date" name="date" value="{{ today }}" required>
+    </label>
+
+    <label>
+        Category
+        <select name="category" required>
+            {% for c in categories %}
+            <option value="{{ c }}">{{ c }}</option>
+            {% endfor %}
+        </select>
+    </label>
+
+    <label>
+        Amount
+        <input type="number" step="0.01" min="0" name="amount" placeholder="0.00" required>
+    </label>
+
+    <label>
+        Description
+        <input type="text" name="description" placeholder="What was this for?">
+    </label>
+
+    <button type="submit" class="btn-primary">Save Expense</button>
+</form>
+{% endblock %}

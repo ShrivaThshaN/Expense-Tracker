@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Charts · Expense Tracker{% endblock %}
+{% block content %}
+<h1>Charts</h1>
+
+{% if not has_data %}
+    <p class="empty">No expenses yet. <a href="{{ url_for('add_expense') }}">Add one</a> to see charts.</p>
+{% else %}
+<div class="chart-grid">
+    <div class="chart-card">
+        <h2>Category Breakdown</h2>
+        <img src="{{ url_for('chart_pie') }}" alt="Pie chart of spending by category">
+    </div>
+    <div class="chart-card">
+        <h2>Monthly Spending</h2>
+        <img src="{{ url_for('chart_bar') }}" alt="Bar chart of monthly spending">
+    </div>
+</div>
+{% endif %}
+{% endblock %}

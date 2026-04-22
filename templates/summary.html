@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Monthly Summary · Expense Tracker{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>Monthly Summary</h1>
+    {% if rows %}
+        <a class="btn-secondary" href="{{ url_for('export_summary') }}">⬇ Export CSV</a>
+    {% endif %}
+</div>
+
+{% if not rows %}
+    <p class="empty">No expenses yet. <a href="{{ url_for('add_expense') }}">Add one</a>.</p>
+{% else %}
+<table class="data-table striped">
+    <thead>
+        <tr>
+            <th>Month</th>
+            <th>Total Spending</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for month, total in rows %}
+        <tr>
+            <td>{{ month }}</td>
+            <td>₹{{ "%.2f"|format(total) }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}
