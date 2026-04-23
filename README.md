@@ -2,6 +2,8 @@
 
 A simple Flask web app to track personal expenses, with charts and CSV export.
 
+Demo video : https://drive.google.com/file/d/1PCFInAwPqBh8zB9XOKlYJras4vewDvah/view?usp=sharing
+
 ## Features
 
 - Animated welcome page (click anywhere to enter)
